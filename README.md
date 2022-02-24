@@ -22,9 +22,4 @@ This is a Node.js command-line application that takes in information about emplo
 <br>
 <br>
 
-## Deployed Link
-[Click here](https://ggeils.github.io/Team-Profile-Generator/)
-<br>
-<br>
-
 ![GitHub contributors](https://img.shields.io/github/contributors/ggeils/Team-Profile-Generator?style=for-the-badge) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/ggeils/Team-Profile-Generator?style=for-the-badge) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ggeils/Team-Profile-Generator?style=for-the-badge)
