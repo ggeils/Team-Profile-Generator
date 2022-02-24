@@ -61,7 +61,7 @@ function addEmployee() {
           employees.push(newMember);
           editHtml(newMember).then(function () {
             if (addMoreMembers === "yes") {
-              addMember();
+              addEmployee();
             } else {
               finish();
             }
