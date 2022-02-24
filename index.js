@@ -59,7 +59,7 @@ function addEmployee() {
             newMember = new Manager(name, id, email, roleInfo);
           }
           employees.push(newMember);
-          addHtml(newMember).then(function () {
+          editHtml(newMember).then(function () {
             if (addMoreMembers === "yes") {
               addMember();
             } else {
@@ -92,8 +92,76 @@ function addEmployee() {
         });
     }
     
+    function editHtml(member) {
+        return new Promise(function(resolve, reject) {
+            const name = member.getName();
+            const role = member.getRole();
+            const id = member.getId();
+            const email = member.getEmail();
+            let info = "";
+            if (role === "Engineer") {
+                const gitHub = member.getGithub();
+                info = `<div class="col-6">
+                <div class="card mx-auto mb-3" style="width: 18rem">
+                <h5 class="card-header">${name}<br /><br />Engineer</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID: ${id}</li>
+                    <li class="list-group-item">Email Address: ${email}</li>
+                    <li class="list-group-item">GitHub: ${gitHub}</li>
+                </ul>
+                </div>
+            </div>`;
+            } else if (role === "Intern") {
+                const school = member.getSchool();
+                info = `<div class="col-6">
+                <div class="card mx-auto mb-3" style="width: 18rem">
+                <h5 class="card-header">${name}<br /><br />Intern</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID: ${id}</li>
+                    <li class="list-group-item">Email Address: ${email}</li>
+                    <li class="list-group-item">School: ${school}</li>
+                </ul>
+                </div>
+            </div>`;
+            } else {
+                const officeNumber = member.getOfficeNumber();
+                info = `<div class="col-6">
+                <div class="card mx-auto mb-3" style="width: 18rem">
+                <h5 class="card-header">${name}<br /><br />Manager</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">ID: ${id}</li>
+                    <li class="list-group-item">Email: ${email}</li>
+                    <li class="list-group-item">Office number: ${officeNumber}</li>
+                </ul>
+                </div>
+            </div>`
+            }
+            fs.appendFile("./output/myteam.html", info, function (err) {
+                if (err) {
+                    return reject(err);
+                };
+                return resolve();
+            });
+        });
+    };
 
-    function finish() {
-        const html = ` </div>
-        </div>
-}
+        function finish() {
+            const html = ` </div>
+            </div>
+            
+        </body>
+        </html>`;
+        
+            fs.appendFile("./output/myteam.html", html, function (err) {
+                if (err) {
+                    console.log(err);
+                };
+            });
+        };
+    
+        function init() {
+            outputHtml();
+            addEmployee();
+        }
+
+init();
