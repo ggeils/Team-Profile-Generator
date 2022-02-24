@@ -68,6 +68,7 @@ function addEmployee() {
           });
         });
     });
+};
 
     function outputHtml() {
         const html = `<!DOCTYPE html>
