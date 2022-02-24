@@ -1,3 +1,4 @@
+// Variables needed
 const inquirer = require("inquirer");
 const fs = require("fs");
 const Engineer = require("./lib/engineer.js");
@@ -5,6 +6,7 @@ const Intern = require("./lib/intern.js");
 const Manager = require("./lib/manager.js");
 const employees = [];
 
+// Employee question prompts
 function addEmployee() {
   inquirer
     .prompt([
@@ -70,6 +72,7 @@ function addEmployee() {
     });
 };
 
+// Creates base HTML file skeleton for output
     function outputHtml() {
         const html = `<!DOCTYPE html>
         <html lang="en">
@@ -93,6 +96,7 @@ function addEmployee() {
         });
     }
     
+    // Adds information input by user to the HTML output skeleton file
     function editHtml(member) {
         return new Promise(function(resolve, reject) {
             const name = member.getName();
@@ -145,21 +149,21 @@ function addEmployee() {
             });
         });
     };
-
+    // Finished the HTML file
         function finish() {
             const html = ` </div>
             </div>
             
         </body>
         </html>`;
-        
+            // Sends the HTML output to myteam.html
             fs.appendFile("./output/myteam.html", html, function (err) {
                 if (err) {
                     console.log(err);
                 };
             });
         };
-    
+    // Initializes the app
         function init() {
             outputHtml();
             addEmployee();
