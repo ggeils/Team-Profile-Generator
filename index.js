@@ -81,7 +81,7 @@ function addEmployee() {
             <title>My Team</title>
         </head>
         <body>
-            <nav class="navbar navbar-dark navbar-color mb-5">
+            <nav class="navbar navbar-color mb-5">
                 <span class="navbar-brand mb-0 h1 w-100 text-center">My Team</span>
             </nav>
             <div class="container">
